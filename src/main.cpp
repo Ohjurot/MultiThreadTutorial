@@ -6,15 +6,15 @@
 #include <vector>
 #include <cassert>
 
-// unsigned int doneWork = 0;
+unsigned int doneWork = 0;
 
 double work(unsigned int idx, double input) {
-    // doneWork = doneWork + 1;
+    doneWork = doneWork + 1;
     return abs(sin(input * idx)) * input;
 }
 
 void doWork(double* data, unsigned int count, unsigned int offset = 0) {
-    for (unsigned int i = offset; i < count; i++) {
+    for (unsigned int i = offset; i < (offset + count); i++) {
         data[i] = work(i, data[i]);
     }
 }
@@ -50,7 +50,7 @@ int main() {
     // Work and time
     std::cout << "=== START WORK ===" << std::endl;
     auto tStart = std::chrono::steady_clock::now();
-    doWorkMT(workData, workCount, 8);
+    doWorkMT(workData, workCount, 4);
     auto tStop = std::chrono::steady_clock::now();
 
     // Print timing result
@@ -61,7 +61,7 @@ int main() {
         << " S: " << std::chrono::duration_cast<std::chrono::seconds>(tStop - tStart).count() << std::endl;
 
     // Assert my work
-    // assert(doneCount == workCount && "Work success");
+    assert(doneWork == workCount && "Work success");
 
     // Free
     free(workData);
