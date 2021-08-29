@@ -5,11 +5,12 @@
 #include <thread>
 #include <vector>
 #include <cassert>
+#include <atomic>
 
-unsigned int doneWork = 0;
+std::atomic<unsigned int> doneWork;
 
 double work(unsigned int idx, double input) {
-    doneWork = doneWork + 1;
+    doneWork.fetch_add(1, std::memory_order_seq_cst);
     return abs(sin(input * idx)) * input;
 }
 
@@ -61,7 +62,7 @@ int main() {
         << " S: " << std::chrono::duration_cast<std::chrono::seconds>(tStop - tStart).count() << std::endl;
 
     // Assert my work
-    assert(doneWork == workCount && "Work success");
+    assert(doneWork.load(std::memory_order_relaxed) == workCount && "Work success");
 
     // Free
     free(workData);
