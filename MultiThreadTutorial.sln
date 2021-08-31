@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiThreadTutorial", "Mult
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug WINAPI|x64 = Debug WINAPI|x64
 		Debug|x64 = Debug|x64
+		Release WINAPI|x64 = Release WINAPI|x64
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Debug WINAPI|x64.ActiveCfg = Debug WINAPI|x64
+		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Debug WINAPI|x64.Build.0 = Debug WINAPI|x64
 		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Debug|x64.ActiveCfg = Debug|x64
 		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Debug|x64.Build.0 = Debug|x64
+		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Release WINAPI|x64.ActiveCfg = Release WINAPI|x64
+		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Release WINAPI|x64.Build.0 = Release WINAPI|x64
 		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Release|x64.ActiveCfg = Release|x64
 		{6DB480D1-A8F9-4791-A730-11887F7DCD12}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
